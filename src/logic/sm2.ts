@@ -26,6 +26,9 @@ export function reviewCard(card: CardData, quality: number): CardData {
     }
   }
 
+  // Cap interval at 365 days (1 year)
+  interval = Math.min(interval, 365);
+
   const nextReview = new Date();
   nextReview.setDate(nextReview.getDate() + interval);
 
