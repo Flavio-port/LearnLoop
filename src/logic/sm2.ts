@@ -6,6 +6,16 @@ export interface CardData {
   nextReview: Date;
 }
 
+export function createNewCard(id: string): CardData {
+  return {
+    id,
+    interval: 1,
+    repetitions: 0,
+    easiness: 2.5,
+    nextReview: new Date(),
+  };
+}
+
 export function reviewCard(card: CardData, quality: number): CardData {
   let { interval, repetitions, easiness } = card;
 
