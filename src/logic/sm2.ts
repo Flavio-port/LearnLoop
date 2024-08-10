@@ -17,6 +17,9 @@ export function createNewCard(id: string): CardData {
 }
 
 export function reviewCard(card: CardData, quality: number): CardData {
+  if (quality < 0 || quality > 5) {
+    throw new Error('Quality must be between 0 and 5');
+  }
   let { interval, repetitions, easiness } = card;
 
   // Update easiness factor
